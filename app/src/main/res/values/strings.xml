@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SkyLeap</string>
+
+    <string name="hello_world">Stars trail above and urban lights sprawl below in this moonlit nightscape from Cape Town, South Africa, planet Earth. The looming form of Table Mountain almost seems to hold terrestrial lights at bay while the stars circle the planet\'s South Celestial Pole. This modern perspective on the natural night sky was captured in June 2014, the scene composed of over nine hundred, stacked 30 second exposures. The stunning result was chosen as the winner in the Against the Lights category, a selection from over 800 entries in The World at Night\'s 2015 International Earth and Sky Photo Contest.</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="title_activity_welcome_screen">WelcomeScreen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+</resources>
