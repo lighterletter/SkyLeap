@@ -12,6 +12,13 @@ import android.view.MotionEvent;
 import android.view.View;
 
 
+
+/* Most of this is auto-generated code.
+// I made the bulk of the changes to the xml file to build the welcome screen.
+//
+// Below I note the changes I made to cover the loading of assets making the welcome screen
+// function as a loading screen as well.
+*/
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
@@ -110,15 +117,19 @@ public class WelcomeScreen extends Activity {
             }
         });
 
-        //Introduce an delay
-        final int WAIT_TIME = 2500;
+
+
+        //Introduce an artificial delay
+        final int WAIT_TIME = 2000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                //Simulating a long running task
-                delayedHide(1000);
+
+            //Simulating a long running task
+                delayedHide(500);
                 System.out.println("Going to Main activity");
-	  /* Create an Intent that will start the ProfileData-Activity. */
+	        /* Create an Intent that will start the ProfileData-Activity once our assets are loaded.
+	        */
                 Intent mainIntent = new Intent(WelcomeScreen.this, MainActivity.class);
                 WelcomeScreen.this.startActivity(mainIntent);
                 WelcomeScreen.this.finish();
@@ -130,8 +141,6 @@ public class WelcomeScreen extends Activity {
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
-
 
         }
         // Trigger the initial hide() shortly after the activity has been
