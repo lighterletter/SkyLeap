@@ -1,5 +1,15 @@
-<resources>
+<!--<resources>-->
 
-    <color name="black_overlay">#66000000</color>
+     <!-- -->
+    <!--<span style="font-size: x-small;"><?xml version="1.0" encoding="utf-8"?>-->
+        <resources>
 
-</resources>
+            <color name="light_overlay">#fff</color>
+            <color name="ColorPrimary">#ff3ce6ff</color>
+            <color name="ColorPrimaryDark">#ff0cb0e6</color>
+        </resources>
+
+    <!--</span>-->
+
+<!--</resources>-->
+
