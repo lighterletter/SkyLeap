@@ -14,4 +14,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_apod">ApodActivity</string>
     <string name="title_activity_weather">WeatherActivity</string>
+    <string name="title_activity_to_do">ToDo</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 </resources>
