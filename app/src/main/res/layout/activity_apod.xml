@@ -34,7 +34,7 @@
             android:background="#ff2288e6"
             android:padding="0dp"
             android:contentDescription="starcard"
-            android:src="@drawable/apodImgTest" />
+            android:src="@drawable/apodimgtest" />
 
     </android.support.v7.widget.CardView>
 
