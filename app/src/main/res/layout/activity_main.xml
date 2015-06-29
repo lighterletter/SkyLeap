@@ -12,11 +12,6 @@
         android:layout_width="match_parent"
         />
 
-    <!--<lighterletter.c4q.nyc.skyleap.SlidingTabLayout-->
-        <!--android:id="@+id/sliding_tabs"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--/>-->
     <lighterletter.c4q.nyc.skyleap.SlidingTabLayout
         android:id="@+id/tabs"
         android:layout_width="match_parent"
@@ -44,18 +39,7 @@
         android:layout_alignParentEnd="true"
         android:elevation="@dimen/fab_translation_z_pressed"/>
 
-    <!--<ImageButton-->
-        <!--android:id="@+id/imageButton"-->
-        <!--android:layout_width="@dimen/dp_56"-->
-        <!--android:layout_height="@dimen/dp_56"-->
-        <!--android:layout_gravity="end|bottom"-->
-        <!--android:layout_marginBottom="@dimen/dp_16"-->
-        <!--android:layout_marginEnd="@dimen/dp_16"-->
-        <!--android:tint="@android:color/white"-->
-        <!--android:src="@drawable/ic_action"-->
-        <!--android:background="@drawable/circle"-->
-        <!--android:elevation="@dimen/floating_button_elevation"-->
-        <!--android:stateListAnimator="@anim/circle_elevation"/>-->
+
 
 
 

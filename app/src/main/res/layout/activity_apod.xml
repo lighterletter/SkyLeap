@@ -6,9 +6,16 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="lighterletter.c4q.nyc.skyleap.ApodActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/apodListRV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ApodActivity"
+        >
+
     <android.support.v7.widget.CardView
         xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/apodcard"
+        android:id="@+id/apodCardView"
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -24,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_weight="2"
-            android:id="@+id/imageView"
+            android:id="@+id/apodImageView"
             android:elevation="2dp"
             android:scaleType="centerCrop"
             android:focusable="true"
@@ -33,29 +40,10 @@
             android:clickable="true"
             android:background="#ff2288e6"
             android:padding="0dp"
-            android:contentDescription="starcard"
             android:src="@drawable/apodimgtest" />
 
-    </android.support.v7.widget.CardView>
-
-
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/testcard"
-        android:layout_gravity="center"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:elevation="5dp"
-        card_view:cardCornerRadius="4dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/apodcard">
-
-    </android.support.v7.widget.CardView>
-
     <TextView
-        android:id="@+id/my_textview"
+        android:id="@+id/apo_test_textview"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="@string/apodtextstream"
@@ -65,16 +53,12 @@
         android:paddingRight="20dp"
         android:elegantTextHeight="true"
         android:textColor="#ffe6e6e6"
-        android:layout_below="@+id/apodcard"
         android:layout_alignParentStart="true"
         android:nestedScrollingEnabled="true" />
+    </android.support.v7.widget.CardView>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/testcard" />
+    </android.support.v7.widget.RecyclerView>
+
+
 
 </RelativeLayout>
