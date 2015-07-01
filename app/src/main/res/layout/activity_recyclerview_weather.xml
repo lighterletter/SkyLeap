@@ -6,6 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/weather_rel_layout"
     tools:context="lighterletter.c4q.nyc.skyleap.WeatherActivity">
 
     <android.support.v7.widget.RecyclerView

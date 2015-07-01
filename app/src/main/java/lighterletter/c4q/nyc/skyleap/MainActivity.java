@@ -30,12 +30,17 @@ public class MainActivity extends AppCompatActivity { /* When using Appcombat su
         setContentView(R.layout.activity_main);
 
         toolbar = (Toolbar) findViewById(R.id.tool_bar); // Attaching the layout to the toolbar object
-        setSupportActionBar(toolbar);                   // Setting toolbar as the ActionBar with setSupportActionBar() call
+        setSupportActionBar(toolbar);                   // Setting toolbar as the Active ActionBar with setSupportActionBar() call
 
-        // Creating The ViewPagerAdapter and Passing Fragment Manager, Titles fot the Tabs and Number Of Tabs.
-        adapter = new ViewPagerAdapter(getSupportFragmentManager(),Titles,Numboftabs);
+        // Creating The ViewPagerAdapter which will combine and arrange the necessary elements.
+        // passing a request of three arguments to receive Fragment Manager support, Titles array,  and Number Of Tabs.
+        // Since we wrote the code, we can give it instructions before we actually create it programmatically which will
+        // trigger the compiled code.
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(),Titles,Numboftabs);//
 
         //// Assigning ViewPager View and setting the adapter
+        /*from the docs: ViewPager: Layout manager that allows the user to flip left and right through pages of data.
+        You supply an implementation of a PagerAdapter to generate the pages that the view shows.*/
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mViewPager.setAdapter(adapter);
 

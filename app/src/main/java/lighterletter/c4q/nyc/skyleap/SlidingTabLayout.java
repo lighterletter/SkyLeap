@@ -194,7 +194,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
             if (mTabViewLayoutId != 0) {
                 // If there is a custom tab view layout id set, try and inflate it
-                tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
+                tabView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_layout_weather_card, mTabStrip,
                         false);
                 tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
             }
@@ -255,6 +255,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
             if (tabIndex > 0 || positionOffset > 0) {
                 // If we're not at the first child and are mid-scroll, make sure we obey the offset
                 targetScrollX -= mTitleOffset;
+
             }
 
             scrollTo(targetScrollX, 0);

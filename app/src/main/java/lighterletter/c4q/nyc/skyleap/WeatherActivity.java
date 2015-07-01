@@ -27,17 +27,19 @@ public class WeatherActivity extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View layout =inflater.inflate(R.layout.activity_recyclerview_weather,container,false);
+        View layout = inflater.inflate(R.layout.activity_recyclerview_weather,container,false);
         recyclerView = (RecyclerView) layout.findViewById(R.id.weatherRecyclerView);
 
         weatherAdapter = new WeatherVHRVAdapter(getActivity(),getData());
         recyclerView.setAdapter(weatherAdapter);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
 
         return layout;
 
     }
+
+    //
     public static List<WeatherInformation> getData(){
         List<WeatherInformation> data = new ArrayList<>();
         int[] imgIcons = {R.drawable.apodimgtest, R.drawable.apodimgtest};//TODO: change drawables to the weather images

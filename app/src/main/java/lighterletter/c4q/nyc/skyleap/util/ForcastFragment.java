@@ -29,19 +29,22 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+//
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import lighterletter.c4q.nyc.skyleap.R;
+
 /**
  * Encapsulate fetching the forecast and displaying it as a {@link ListView} layout
  */
-public class ForecastFragment extends Fragment {
+public class ForcastFragment extends Fragment {
 
     private ArrayAdapter<String> mForecastAdapter;
 
-    public ForecastFragment() {
+    public ForcastFragment() {
     }
 
     @Override
@@ -53,22 +56,9 @@ public class ForecastFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
-        inflater.inflate(R.menu.forecastfragment, menu);
+        inflater.inflate(R.menu.menu_weather, menu);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_refresh){
-            FetchWeatherTask weatherTask = new FetchWeatherTask();
-            weatherTask.execute("94043");
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 
 
     @Override
@@ -93,14 +83,14 @@ public class ForecastFragment extends Fragment {
 
         mForecastAdapter = new ArrayAdapter<String>(
                 getActivity(), //The current context (this activity);
-                R.layout.list_item_forecast, //The name of the layout ID
-                R.id.list_item_forecast_textview, // The ID of the textview to populate
+                R.layout.activity_recyclerview_weather, //The name of the layout ID
+                R.id.my_Weather_textview, // The ID of the textview to populate
                 weekForecast);
 
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_layout_weather_card, container, false);
 
         // Get a reference to the ListView, and attach this adapter to it.
-        ListView listView = (ListView) rootView.findViewById(R.id.listview_forecast);
+        ListView listView = (ListView) rootView.findViewById(R.id.weatherRecyclerView);
         listView.setAdapter(mForecastAdapter);
 
         return rootView;
