@@ -7,21 +7,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-
+import lighterletter.c4q.nyc.skyleap.tabs.SlidingTabLayout;
 
 
 public class MainActivity extends AppCompatActivity { /* When using Appcombat support library
                                                          you need to extend Main Activity to
                                                          ActionBarActivity.
                                                       */
-
-
      Toolbar toolbar;                              // Declaring the Toolbar Object
      ViewPager mViewPager;
      ViewPagerAdapter adapter;
      SlidingTabLayout tabs;
-     CharSequence Titles[]={"Weather","APOD"};
-     int Numboftabs =2;
+     CharSequence Titles[]={"Weather","Space","ToDo"};
+     int Numboftabs = 3;
+
+
+
 
 
     @Override
@@ -60,8 +61,6 @@ public class MainActivity extends AppCompatActivity { /* When using Appcombat su
         // Setting the ViewPager For the SlidingTabsLayout
         tabs.setViewPager(mViewPager);
 
-
-
     }
 
 
@@ -86,4 +85,5 @@ public class MainActivity extends AppCompatActivity { /* When using Appcombat su
 
         return super.onOptionsItemSelected(item);
     }
+
 }

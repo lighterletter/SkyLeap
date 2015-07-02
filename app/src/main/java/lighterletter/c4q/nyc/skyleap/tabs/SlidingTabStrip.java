@@ -1,4 +1,4 @@
-package lighterletter.c4q.nyc.skyleap;
+package lighterletter.c4q.nyc.skyleap.tabs;
 
 /*
  * Copyright 2014 Google Inc. All rights reserved.
@@ -28,6 +28,8 @@ package lighterletter.c4q.nyc.skyleap;
         import android.util.TypedValue;
         import android.view.View;
         import android.widget.LinearLayout;
+
+        import lighterletter.c4q.nyc.skyleap.tabs.SlidingTabLayout;
 
 
 class SlidingTabStrip extends LinearLayout {
