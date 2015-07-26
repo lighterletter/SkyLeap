@@ -43,23 +43,26 @@ public class MainActivity extends AppCompatActivity { /* When using Appcombat su
         /*from the docs: ViewPager: Layout manager that allows the user to flip left and right through pages of data.
         You supply an implementation of a PagerAdapter to generate the pages that the view shows.*/
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
-        mViewPager.setAdapter(adapter);
+        if (mViewPager != null) {
+            mViewPager.setAdapter(adapter);
 
-        // Assigning the Sliding Tab Layout View
-        tabs = (SlidingTabLayout) findViewById(R.id.tabs);
-        tabs.setDistributeEvenly(true); // To make the Tabs Fixed set this true, This makes the tabs Space Evenly in Available width
+
+            // Assigning the Sliding Tab Layout View
+            tabs = (SlidingTabLayout) findViewById(R.id.tabs);
+            tabs.setDistributeEvenly(true); // To make the Tabs Fixed set this true, This makes the tabs Space Evenly in Available width
 
 
 // Setting Custom Color for the Scroll bar indicator of the Tab View
-        tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
-            @Override
-            public int getIndicatorColor(int position) {
-                return getResources().getColor(R.color.light_overlay);
-            }
-        });
+            tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+                @Override
+                public int getIndicatorColor(int position) {
+                    return getResources().getColor(R.color.light_overlay);
+                }
+            });
 
-        // Setting the ViewPager For the SlidingTabsLayout
-        tabs.setViewPager(mViewPager);
+            // Setting the ViewPager For the SlidingTabsLayout
+            tabs.setViewPager(mViewPager);
+        }
 
     }
 

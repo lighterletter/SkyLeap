@@ -1,12 +1,15 @@
 # SkyLeap
-Android productivity app. 
 
-Useful To Do list that also displays the current weather and Nasa's APOD (Astronomy picture of the day).
+Useful To Do app that also displays the current weather and Nasa's Astronomy picture of the day.
 
 Currently in it's build stage. 
 
 (Will post updates as it comes along.)
 
-current: Weather works in celcious. Display and notification. But clikcing the individual nodes causes the app to crash. The astronomy and todo list are still unimplemented.
+current: No weather yet, Fetching and populating Nasa's image, working on populating textView.
+Must use own API key in the API_ADDRESS string inside features.features/space/SpaceFragment.java. In
+order for it to work, you must append "&date=" to your key string.
 
-Busy with other projects. Will update as time becomes available. 
+Looking to optimize the time taken to populate Image views.
+
+

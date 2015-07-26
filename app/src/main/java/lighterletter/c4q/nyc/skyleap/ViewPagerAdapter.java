@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import lighterletter.c4q.nyc.skyleap.features.features.space.SpaceFrag;
+import lighterletter.c4q.nyc.skyleap.features.features.space.SpaceFragment;
 import lighterletter.c4q.nyc.skyleap.features.features.todo.ToDo;
 import lighterletter.c4q.nyc.skyleap.features.features.weather.WeatherFrag;
 
@@ -37,7 +37,7 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
         }
         else if (position ==1)            // As we are having 2 tabs if the position is now 0 it must be 1 so we are returning second tab
         {
-            SpaceFrag tab2 = new SpaceFrag().getInstance(position);
+            SpaceFragment tab2 = new SpaceFragment().getInstance(position);
             return tab2;
         } else
         {
