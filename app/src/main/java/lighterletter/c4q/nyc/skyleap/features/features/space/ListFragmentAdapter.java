@@ -1,12 +1,17 @@
 package lighterletter.c4q.nyc.skyleap.features.features.space;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -21,14 +26,15 @@ public class ListFragmentAdapter extends RecyclerView.Adapter{
 
 
     final List<SpaceFragment.Wrapper> list;
+    static final String TAG = "ListFragmentAdapter";
 
     public ListFragmentAdapter() {
         this.list = new ArrayList<>();
     }
 
-    public void setList(List<SpaceFragment.Wrapper> listWrapper){
-        list.addAll(listWrapper);
-        notifyDataSetChanged();
+    public void addItem(SpaceFragment.Wrapper wrapper){
+        list.add(wrapper);
+        notifyItemInserted(list.size()-1);
     }
 
 
@@ -37,6 +43,7 @@ public class ListFragmentAdapter extends RecyclerView.Adapter{
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.space_layout,parent, false);
 
         SpaceDataHolder holder = new SpaceDataHolder(view);
+        Log.v(TAG, "oncreate view holder");
 
 
 
@@ -45,11 +52,52 @@ public class ListFragmentAdapter extends RecyclerView.Adapter{
 
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
+       final  int height = holder.itemView.getContext().getResources().getDimensionPixelSize(R.dimen.image_height);
+        int width = holder.itemView.getWidth();
+        Log.d(TAG, "width: " + width);
 
-        Picasso.with(((SpaceDataHolder)holder).getmImageView().getContext()).load(list.get(position).url).into(((SpaceDataHolder) holder).getmImageView());
+        if(width <= 0){
+            holder.itemView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    int width = holder.itemView.getWidth();
+
+                    holder.itemView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    loadImage(holder.itemView.getContext(),
+                            (SpaceDataHolder) holder,list.get(position).url,width,height);
+                }
+            });
+        } else {
+            loadImage(holder.itemView.getContext(),
+                    (SpaceDataHolder) holder,list.get(position).url,width,height);
+        }
+
+        ((SpaceDataHolder) holder).mTextViewExplanation.setText(list.get(position).explanation);
+
+        Log.v(TAG, "on bind view holder");
 
 
+    }
+
+    private void loadImage(Context context, final SpaceDataHolder holder, String url, int width, int height) {
+        holder.imgLoader.setVisibility(View.VISIBLE);
+        Picasso.with(context)
+                .load(url)
+                .resize(width, height+50)
+                .centerCrop()
+                .into(holder.getmImageView(), new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        holder.imgLoader.setVisibility(View.INVISIBLE);
+                    }
+
+                    @Override
+                    public void onError() {
+                        holder.imgLoader.setVisibility(View.INVISIBLE);
+
+                    }
+                });
     }
 
 
@@ -63,6 +111,7 @@ public class ListFragmentAdapter extends RecyclerView.Adapter{
 
         ImageView mImageView;
         TextView mTextViewExplanation;
+        ProgressBar imgLoader;
 
 
 
@@ -70,6 +119,7 @@ public class ListFragmentAdapter extends RecyclerView.Adapter{
             super(itemView);
             mImageView = (ImageView) itemView.findViewById(R.id.imageView_space);
             mTextViewExplanation = (TextView) itemView.findViewById(R.id.textView_space);
+            imgLoader = (ProgressBar) itemView.findViewById(R.id.img_loader);
 
         }
 

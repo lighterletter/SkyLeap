@@ -43,7 +43,9 @@ public class SpaceFragment extends Fragment {
     private ListFragmentAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
 
-    static final String API_ADDRESS = "";
+
+
+    static final String API_ADDRESS = "https://api.nasa.gov/planetary/apod?concept_tags=True&api_key=JZlUTUQTFxv6gSpRDXJw8DcXgoUWvGgo8UBbDnpK&date=";
 
 
     public SpaceFragment getInstance(int position) {
@@ -76,6 +78,7 @@ public class SpaceFragment extends Fragment {
         mAdapter = new ListFragmentAdapter();
         mRecyclerView.setAdapter(mAdapter);
 
+
     }
 
     @Override
@@ -84,18 +87,25 @@ public class SpaceFragment extends Fragment {
         new AsyncT().execute(10);
     }
 
+
+
+
+
+
+
     class AsyncT extends AsyncTask<Integer, Wrapper, List>{
         @Override
         protected void onProgressUpdate(Wrapper... values) {
             super.onProgressUpdate(values);
+
             Log.d("progress", values[0].toString());
             Wrapper wrapper = values[0];
+            mAdapter.addItem(wrapper);
             //mAdapter.add(wrapper);
         }
         @Override
         protected List doInBackground(Integer... ints) {
 
-            ArrayList<Wrapper> list = new ArrayList<>();
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
 
@@ -108,8 +118,6 @@ public class SpaceFragment extends Fragment {
 
                 String result = downloadJson(url);
 
-
-
                 if (result != null) {
                     try {
                         JSONObject object = new JSONObject(result);
@@ -119,7 +127,7 @@ public class SpaceFragment extends Fragment {
                         wrapper.mediaType = object.getString("media_type");
                         wrapper.explanation = object.getString("explanation");
                         //publishProgress(wrapper);
-                        list.add(wrapper);
+                        publishProgress(wrapper);
 
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -128,13 +136,12 @@ public class SpaceFragment extends Fragment {
                 }
                 Log.d("result", result);
             }
-            return list;
+            return null;
         }
 
         @Override
         protected void onPostExecute(List list) {
             super.onPostExecute(list);
-            mAdapter.setList(list);
         }
 
         String downloadJson(String url){
